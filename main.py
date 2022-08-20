@@ -228,13 +228,13 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-ENV = 'dev'
+ENV = 'prod'
 if ENV == 'dev':
     app.debug = True
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:hr@localhost/Apna Anaaj'
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = ''
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://yueruuiqxclixg:afede3d2f77d6f12ca0181f1fe6e1986c436056d46290b94773afc10a7ce97f3@ec2-44-205-64-253.compute-1.amazonaws.com:5432/dj89dhtnknqsj'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -271,17 +271,18 @@ def about():
     return render_template("About.html")
 
 
-ENV = 'dev'
-if ENV == 'dev':
-    app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:hr@localhost/Apna Anaaj'
-else:
-    app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = ''
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
+# ENV = 'dev'
+# if ENV == 'dev':
+#     app.debug = True
+#     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:hr@localhost/Apna Aanaj'
+# else:
+#     app.debug = False
+#     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://yueruuiqxclixg:afede3d2f77d6f12ca0181f1fe6e1986c436056d46290b94773afc10a7ce97f3@ec2-44-205-64-253.compute-1.amazonaws.com:5432/dj89dhtnknqsj'
+#
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#
+# db = SQLAlchemy(app)
+# #engine = create_engine("mysql+pymysql://user:pw@host/db", pool_pre_ping=True)
 
 
 class project(db.Model):
@@ -342,3 +343,4 @@ def show():
 
 if __name__ == "__main__":
     app.run(debug = True)
+
