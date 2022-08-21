@@ -300,7 +300,7 @@ class project(db.Model):
         self.season_name = season_name
         self.area = area
         self.f_res = f_res
-
+#done
 @app.route('/get', methods=["GET", "POST"])
 def get():
     states_name = ["Gujrat","Madhya Pradesh","Punjab","Tamil Nadu"]
